@@ -60,26 +60,36 @@ public class MainActivity extends AppCompatActivity
                {
                    case R.id.nav_photos:
                         fragment = new PhotosFragment();
-                        loadFragment(fragment);
+//                        loadFragment(fragment);       //(it can be done like this too).
+                       Functions.changeFragments(MainActivity.this, fragment);
                        break;
 
                    case R.id.nav_collections:
                        fragment = new CollectionsFragment();
-                       loadFragment(fragment);
+//                       loadFragment(fragment);        //(it can be done like this too).
+                       Functions.changeFragments(MainActivity.this, fragment);
                        break;
+
 
                    case R.id.nav_favorite:
                        fragment = new FavoriteFragment();
-                       loadFragment(fragment);
+//                       loadFragment(fragment);        //(it can be done like this too).
+                       Functions.changeFragments(MainActivity.this, fragment);
                        break;
 
                    default:
                        return true;
                }
 
+               drawerLayout.closeDrawer(GravityCompat.START);
                return true;
             }
         });
+
+
+        Fragment photosFragment = new PhotosFragment();             // to show this fragment in the main Activity
+//                        loadFragment(fragment);       //(it can be done like this too).
+        Functions.changeFragments(MainActivity.this, photosFragment);
     }
 
 
